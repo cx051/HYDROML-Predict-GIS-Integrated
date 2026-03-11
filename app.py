@@ -386,18 +386,13 @@ if active_page == "GIS Mapping":
 
 map_path = f"webmap_{year}/index.html"
 
-try:
-    with open(map_path, "r", encoding="utf-8") as f:
-        map_html = f.read()
 
-    components.html(
-        map_html,
-        height=720,
-        scrolling=False
-    )
+components.iframe(
+    src=map_path,
+    height=720,
+    scrolling=True
+)
 
-except FileNotFoundError:
-    st.error(f"Map for {year} not found.")
     st.caption(f"Map source: {map_url}")
 
 # Footer
