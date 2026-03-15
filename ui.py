@@ -24,11 +24,11 @@ def inject_css():
     st.markdown("""
         <style>
         /* Import Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         /* Global Styles */
         html, body, [data-testid="stAppViewContainer"] {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #f1f5f9;
         }
         
