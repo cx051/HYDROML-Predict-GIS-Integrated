@@ -385,14 +385,15 @@ if active_page == "GIS Mapping":
 
     year = st.selectbox("Select Year", ["2024", "2025"], index=0, key="gis_year")
 
-    map_file = f"webmap_{year}/index.html"
+    map_path = f"webmap_{year}/index_inlined.html"
+    if os.path.exists(map_path):
+        with open(map_path, 'r', encoding='utf-8') as f:
+            map_html = f.read()
+        components.html(map_html, height=720, scrolling=True)
+    else:
+        st.error(f"Map file not found: {map_path}")
 
-    with open(map_file, "r", encoding="utf-8") as f:
-        map_html = f.read()
-
-    components.html(map_html, height=720, scrolling=True)
-
-    st.caption(f"Map source: {map_file}")
+    st.caption(f"Map source: {map_path} (Self-contained)")
 
 # Footer
 st.markdown(f"""
